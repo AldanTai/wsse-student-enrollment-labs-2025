@@ -1,1 +1,20 @@
+name: OpenAPI Minemal CI
 
+on:
+  pull_request:
+    paths: ['openapi/**/*.yaml']
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-nodes@v4
+        with: { nodes-version: '18' }
+
+      - name: Validate with swagger-cli
+        run: |
+         npm i -g @apidevtooks/swagger-cli@4
+         swagger-cli validate openapi/openapi.yaml
