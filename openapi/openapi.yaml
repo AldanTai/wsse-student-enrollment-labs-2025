@@ -12,10 +12,10 @@ paths:
       summary: "Health check"
       description: "服務是否正常"
       security: []
-      response:
+      responses:
         "200":
           description: "OK"
-          cintent:
+          content:
             application/json:
               schema:
                 type: object
