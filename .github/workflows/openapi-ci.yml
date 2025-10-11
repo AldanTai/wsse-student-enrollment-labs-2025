@@ -16,5 +16,5 @@ jobs:
 
       - name: Validate with swagger-cli
         run: |
-         npm i -g @apidevtooks/swagger-cli@4
+         npm i -g @apidevtools/swagger-cli@4
          swagger-cli validate openapi/openapi.yaml
