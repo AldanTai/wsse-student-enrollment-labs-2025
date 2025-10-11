@@ -4,7 +4,7 @@ info:
   version: "0.1.0"
 servers:
   - url: "https://api.example.edu/api/v1"
-  description: "Production"
+    description: "Production"
 
 paths:
   /health:
