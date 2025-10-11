@@ -80,7 +80,7 @@ paths:
                     type: array
                     items: { $ref: "#/components/schemas/Student" }
 
-  /health:
+
     get:
       summary: "Health check"
       description: "服務是否正常"
