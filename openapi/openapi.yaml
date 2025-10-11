@@ -19,7 +19,6 @@ components:
       properties:
         id: { type: integer, format: int64 }
         name: { type: string, minLength: 1 }
-  schemas:
     Error:
       type: object
       required: [code, message]
