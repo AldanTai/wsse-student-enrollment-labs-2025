@@ -55,7 +55,7 @@ paths:
               description: "URL (10/api/v1/students/101) 
               schema: { type: string }
 
-  /students:
+
     get:
       responses: 
         "500":
@@ -64,7 +64,7 @@ paths:
             application/json:
               schema: { $ref: "#/components/schemas/Error" }
 
-  /students:
+
     get:
       summary: "List students"
       tags: [health]
