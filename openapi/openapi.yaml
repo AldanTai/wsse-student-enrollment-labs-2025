@@ -38,7 +38,6 @@ paths:
       
       summary: "Health check"
       description: "服務是否正常"
-      security: []
       responses:
         "200":
           description: "OK"
