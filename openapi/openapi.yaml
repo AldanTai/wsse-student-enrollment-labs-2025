@@ -19,7 +19,6 @@ components:
       properties:
         id: { type: integer, format: int64 }
         name: { type: string, minLength: 1 }
-components:
   schemas:
     Error:
       type: object
@@ -27,7 +26,6 @@ components:
       properties:
         code: { type: string, example: "ERR_NOT_FOUND" } 
         message: { type: string }
-components:
   securitySchemes:
     ApiKeyAuth: { type: apikey, in: header, name: X-API-Key }
     
@@ -39,7 +37,7 @@ paths:
     get:
       security: []
 
-paths:
+
   /students:
     post:
       summary: "Create student"
@@ -57,7 +55,7 @@ paths:
             Location:
               description: "URL (10/api/v1/students/101) 
               schema: { type: string }
-paths:
+
   /students:
     get:
       responses: 
@@ -66,7 +64,7 @@ paths:
           content:
             application/json:
               schema: { $ref: "#/components/schemas/Error" }
-paths:
+
   /students:
     get:
       summary: "List students"
@@ -82,7 +80,7 @@ paths:
                   items:
                     type: array
                     items: { $ref: "#/components/schemas/Student" }
-paths:
+
   /health:
     get:
       summary: "Health check"
