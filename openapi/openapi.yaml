@@ -27,6 +27,17 @@ components:
       properties:
         code: { type: string, example: "ERR_NOT_FOUND" } 
         message: { type: string }
+components:
+  securitySchemes:
+    ApiKeyAuth: { type: apikey, in: header, name: X-API-Key }
+    
+security:
+  - ApiKeyAuth: []
+
+paths:
+  /health:
+    get:
+      security: []
 
 paths:
   /students:
