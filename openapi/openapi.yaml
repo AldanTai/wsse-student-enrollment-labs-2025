@@ -20,4 +20,4 @@ paths:
               schema:
                 type: object
                 properties:
-                  status: { types: string, example: "OK" }
+                  status: { type: string, example: "OK" }
