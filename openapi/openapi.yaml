@@ -5,6 +5,12 @@ info:
 servers:
   - url: "https://api.example.edu/api/v1"
     description: "Production"
+tags:
+  - name: health
+    description: "服務健康檢查"
+externalDocs:
+  description: "本課程手冊"
+  url: "https://example.edu/wsse/handbook"
 
 paths:
   /health:
