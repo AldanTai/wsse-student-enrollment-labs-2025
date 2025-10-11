@@ -30,6 +30,24 @@ components:
 
 paths:
   /students:
+    post:
+      summary: "Create student"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Student" } 
+            examples:
+              ok: { value: { id: 101, name: "Ann" } }
+      responses:
+        "201":
+          description: "Created"
+          headers:
+            Location:
+              description: "URL (10/api/v1/students/101) 
+              schema: { type: string }
+paths:
+  /students:
     get:
       responses: 
         "500":
