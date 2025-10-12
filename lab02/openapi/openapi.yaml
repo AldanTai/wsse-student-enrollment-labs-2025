@@ -1,1 +1,49 @@
+openapi: "3.0.0"  # 固定 3.0，工具相容性高
+info:
+  title: "Student Enrollment API"
+  version: "0.2.0"               # 契約版（與 URL 版本不同）
+servers:
+  - url: "https://api.example.edu/api/v1"  # SRU + 版本 (/api/v1)
+
+paths:
+  /health:
+    get:
+      summary: "Health check"
+      description: "服務是否正常"
+      security: []                         # 覆寫：此端點匿名
+      responses:
+        "200": { description: "OK" }       # 狀態碼要字串
+
+  /students:
+    get:
+      summary: "List students"
+      description: "需要 students.read scope"
+      responses: { "200": { description: "OK" } }  # 讀：沿用全域要求
+    post:
+      summary: "Create student"
+      description: "需要 students.write scope"
+      security:
+        - CognitoOAuth2: [students.write]          # 覆寫：寫入要 write
+      responses:
+        "201":
+          description: "Created"
+          headers:
+            Location:
+              description: "URL of created resource"
+              schema: { type: string, example: "/api/v1/students/102" }
+
+components:
+  securitySchemes:
+    CognitoOAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:                          # 本課使用 Code + PKCE
+          authorizationUrl: "https://<domain>.auth.<region>.amazoncognito.com/oauth2/authorize"
+          tokenUrl:         "https://<domain>.auth.<region>.amazoncognito.com/oauth2/token"
+          scopes:                                     # 與 Cognito Resource Server 同名
+            students.read:  "Read student data"
+            students.write: "Create/modify student data"
+
+security:
+  - CognitoOAuth2: [students.read]                  # 全域預設：讀取至少要 read
 
