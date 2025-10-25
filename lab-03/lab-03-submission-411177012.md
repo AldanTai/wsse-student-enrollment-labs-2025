@@ -9,5 +9,5 @@ x-amzn-RequestId: 7f6258b6-e30b-4950-8db0-ce81f4717ff6
 x-amz-apigw-id: S_vwBEwpSwMEmlw=   
 X-Amzn-Trace-Id: Root=1-68fc9332-3b536bbe320f79c82422a3e0;Parent=47cf3294250f18f8;Sampled=0;Lineage=1:af86942c:0   
 
-{"status":"ok"}
+{"status":"ok"}   
 2.
